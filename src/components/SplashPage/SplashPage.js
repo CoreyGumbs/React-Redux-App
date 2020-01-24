@@ -12,7 +12,7 @@ const SplashPage = (props) => {
             <h1 className="splash-page-heading">
                 Discovery
             </h1>
-            <Link to='/Home'>
+            <Link to='/home'>
                 <button className="splash-page-btn">
                     Launch
                 </button>
