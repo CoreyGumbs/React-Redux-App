@@ -1,0 +1,43 @@
+.splash-page-container{
+    width: 70%;
+    margin: 15% auto;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-logo{
+    width: 100%;
+    margin-bottom: 0px;
+    padding: 0;
+}
+
+.splash-page-heading{
+    width: 80%;
+    margin: 0;
+    padding: 15px 30px;
+    border: 0px solid rgba(207, 0, 15, 1);
+    color: rgba(166, 169, 172);
+    font-family: 'Anton', sans-serif;
+    font-size: 8rem;
+    text-align: right;
+}
+
+.splash-page-btn{
+    width: 200px;
+    margin: 50px 0;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    color: white;
+    background-color: rgba(1,83,136,1);
+    border: 2px solid rgba(1,83,136,1) ;
+    border-radius: 5px;
+}
+
+.splash-page-btn:hover{
+    background-color: white;
+    border: 2px solid rgba(1,83,136,1);
+    color: rgba(1,83,136,1);
+}

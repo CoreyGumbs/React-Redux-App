@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import {connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
 
-function App() {
+import {fetchData}  from './actions';
+
+import Header from  './components/Header/Header';
+import MainPage from './components/MainPage/MainPage';
+import About from './components/About/About';
+import History from './components/History/History';
+
+import './css/styles.css';
+
+function App(props) {
+
+  useEffect(()=>{
+    const body = document.querySelector('body');
+    body.onload = props.fetchData;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {props.isLoading && 
+        <Loader type="Puff" color="#00BFFF" height={100} width={100} timeout={3000} //3 secs
+      />
+      }
+
+      {!props.isLoading && 
+        <>
+          <Header />
+          <Switch>
+          <Route path = "/about" component={About} />
+          <Route path = "/history" component={History} />
+          <Route exact path = "/" component={MainPage} />
+          </Switch>
+        </>
+      }    
     </div>
   );
 }
 
-export default App;
+const mapStateToProps =  state => {
+  return{
+    isLoading: state.state.isLoading,
+    data: state.state.data
+  }
+}
+
+export default withRouter(connect(mapStateToProps, {fetchData})(App));
