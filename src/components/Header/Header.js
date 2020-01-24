@@ -13,7 +13,13 @@ const Header = (props) => {
                 <div className="header-link">
                     <NavLink to="/home">
                         Home
-                    </NavLink>   
+                    </NavLink> 
+                    <NavLink to="/about">
+                       About
+                    </NavLink>  
+                    <NavLink to="/history">
+                        History
+                    </NavLink>    
                 </div>
             </div>
         </header>
@@ -21,11 +27,10 @@ const Header = (props) => {
 }
 
 const mapStateToProps = (state) =>{
-    console.log(state);
     return{
         logo: state.splash.logo,
         logoTxt: state.splash.logoTxt
     }
 }
 
-export default withRouter(connect(mapStateToProps, {}   )(Header));
+export default withRouter(connect(mapStateToProps, {})(Header));

@@ -2,10 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
+import { toggleSplash } from '../../actions/toggleSplash';
 import './css/splash.css';
 
 const SplashPage = (props) => {
-    console.log(props);
+    
     return(
         <div className="splash-page-container">
             <img className="splash-logo" src={props.logo} alt="spacex logo"/>
@@ -13,7 +14,7 @@ const SplashPage = (props) => {
                 Discovery
             </h1>
             <Link to='/home'>
-                <button className="splash-page-btn">
+                <button className="splash-page-btn" onClick={props.toggleSplash}>
                     Launch
                 </button>
             </Link>
@@ -22,10 +23,10 @@ const SplashPage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state);
+
     return {
         logo: state.splash.logo
     }
 }
 
-export default withRouter(connect(mapStateToProps, {})(SplashPage));
+export default withRouter(connect(mapStateToProps, {toggleSplash})(SplashPage));

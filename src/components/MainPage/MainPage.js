@@ -1,15 +1,15 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Header from '../Header/Header';
+const MainPage = (props) => {
+    console.log(props);
+    return( 
+    
+        <main className="container">
+           <h1>MAIN PAGE</h1>
 
-const MainPage = () => {
-    return(
-        <div className="container">
-            <Header />
-            <div className="main-container">
-                home
-            </div>
-        </div>
+        </main>
+
     )
 }
 
