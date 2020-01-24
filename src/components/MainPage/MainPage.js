@@ -1,16 +1,24 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {connect} from 'react-redux';
+
 
 const MainPage = (props) => {
     console.log(props);
     return( 
-    
         <main className="container">
+
            <h1>MAIN PAGE</h1>
-
+        
         </main>
-
     )
 }
 
-export default MainPage;
+const mapStateToProps = state => {
+    return{
+        isLoading: state.state.isLoading,
+        data: state.state.data,
+        errors: state.state.errors
+    }
+}
+
+export default connect(mapStateToProps, {})(MainPage);
