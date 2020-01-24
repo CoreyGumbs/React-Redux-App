@@ -4,9 +4,9 @@ export const splashState = {
     logo: logo 
 };
 
-export const splashReducer =  (state, action) => {
+export const splashReducer =  (state = splashState, action) => {
     switch(action.type){
         default:
-            return splashState;
+            return state;
     }
 };
