@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 
 const MainPage = (props) => {
-    console.log(props);
     return( 
         <main className="container">
 
