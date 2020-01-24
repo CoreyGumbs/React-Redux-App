@@ -11,7 +11,7 @@ const Header = (props) => {
                     <img className="header-logo" src={props.logo} alt={props.logoTxt}/>
                 </div>
                 <div className="header-link">
-                    <NavLink to="/home">
+                    <NavLink to="/">
                         Home
                     </NavLink> 
                     <NavLink to="/about">
