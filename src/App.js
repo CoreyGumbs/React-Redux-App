@@ -1,22 +1,53 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import SplashPage from './components/SplashPage/SplashPage';
-import Loader from './components/Loader/Loader';
+import React, {useEffect} from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import {connect } from 'react-redux';
+import Loader from 'react-loader-spinner'
+
+import {fetchData}  from './actions';
+
+import Header from  './components/Header/Header';
+import MainPage from './components/MainPage/MainPage';
+import About from './components/About/About';
+import History from './components/History/History';
 
 import './css/styles.css';
 
-import MainPage from './components/MainPage/MainPage';
+function App(props) {
 
-function App() {
+  useEffect(()=>{
+    const body = document.querySelector('body');
+    console.log(body);
+    body.onload = props.fetchData;
+  });
+
+  console.log(props);
   return (
     <div className='App'>
-    <Switch>
-      <Route path = "/loader" component={Loader} />
-      <Route path = "/home" component={MainPage} />
-      <Route exact path = "/" component={SplashPage} />
-    </Switch>
+      {props.isLoading && 
+      <Loader type="Puff" color="#00BFFF" height={100} width={100} timeout={3000} //3 secs
+      />
+      }
+
+      {!props.isLoading && !props.data && 
+        <>
+          <Header />
+          <Switch>
+          <Route path = "/about" component={About} />
+          <Route path = "/history" component={History} />
+          <Route path = "/" component={MainPage} />
+          {/* <Route exact path = "/" component={SplashPage} /> */}
+          </Switch>
+        </>
+      }    
     </div>
   );
 }
 
-export default App;
+const mapStateToProps =  state => {
+  return{
+    isLoading: state.state.isLoading,
+    data: state.state.data
+  }
+}
+
+export default withRouter(connect(mapStateToProps, {fetchData})(App));

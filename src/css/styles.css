@@ -15,7 +15,6 @@ header{
     margin-bottom: 30px;
     padding: 0;
     background-color: black;
-    box-shadow: 1px 2px 10px #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,3 +51,14 @@ header{
     font-size: 1.5rem;
     color: white;
 }
+
+.header-link a:hover{
+    color: rgba(1,83,136,1);
+}
+
+.container{
+    width: 80%;
+    margin: 60px auto;
+    font-size: 3rem;
+}
+
