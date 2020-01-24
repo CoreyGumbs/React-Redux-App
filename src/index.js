@@ -6,12 +6,12 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import Normalize from 'react-normalize';
 
-import { reducer } from './reducers/reducers';
+import combineReducers from './reducers/index';
 
 import App from './App';
 import './css/index.css';
 
-const store =  createStore(reducer, applyMiddleware(thunk, logger));
+const store =  createStore(combineReducers, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
 <Provider store={store}>

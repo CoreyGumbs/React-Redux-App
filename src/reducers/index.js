@@ -1,7 +1,10 @@
-import { combineReducers } from "redux";
-import { aboutReducer } from './aboutReducer';
+import { combineReducers } from 'redux';
+import { initialReducer } from './initialReducer';
+import { rocketReducer } from './rocketReducer';
+import { dragonReducer } from './dragonReducer';
 
 export default  combineReducers({
-    aboutReducer,
-
+    initialReducer,
+    rocketReducer,
+    dragonReducer
 });
